@@ -1,8 +1,20 @@
-﻿using System;
+﻿using MediatR;
+using System;
+using System.Threading.Tasks;
 
 namespace CleanArch.Infra.Bus
 {
-    public class InMemoryBus
+    public sealed class InMemoryBus:IMediatorHandler
     {
+        private readonly IMediator _mediator;
+        public InMemoryBus(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
+        public Task SendCommand<T>(T command) where T : Command
+        { 
+        
+        }
     }
 }
